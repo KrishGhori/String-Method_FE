@@ -16,6 +16,25 @@
                 <label class="form-label">Enter String:</label>
                 <input type="text" id="inputString" class="form-control">
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Select Method:</label>
+                <select id="methodSelect" class="form-select" onchange="showExtraFields()">
+                    <option value="">-- Select --</option>
+                    <option value="length">Length</option>
+                    <option value="substring">Substring</option>
+                    <option value="uppercase">To Upper Case</option>
+                    <option value="lowercase">To Lower Case</option>
+                    <option value="replace">Replace</option>
+                    <option value="trimstart">Trim Start</option>
+                    <option value="trimend">Trim End</option>
+                    <option value="at">At</option>
+                    <option value="slice">Slice</option>
+                    <option value="charcode">Char Code At</option>
+                    <option value="padstart">Pad Start</option>
+                    <option value="padend">Pad End</option>
+                </select>
+            </div>
         </form>
 
         <hr>
