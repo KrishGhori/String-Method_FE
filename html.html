@@ -1,50 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>String Method Selector</title>
+<title>Advanced String Method Form</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-light">
 
 <div class="container mt-5">
-<div class="card p-4 shadow">
 
-<h3 class="text-center">String Method Selector</h3>
+<div class="card shadow p-4">
 
-<label class="form-label">Enter String:</label>
+<h3 class="text-center mb-4">String Method Selector</h3>
+
+<form>
+
+<div class="mb-3">
+<label class="form-label">Enter String</label>
 <input type="text" id="inputString" class="form-control">
+</div>
 
-<br>
+<div class="mb-3">
+<label class="form-label">Select Method</label>
 
-<label class="form-label">Select Method:</label>
-<select id="methodSelect" class="form-select">
+<select id="methodSelect" class="form-select" onchange="showExtraFields()">
+
 <option value="">--Select--</option>
+
 <option value="length">Length</option>
+<option value="substring">Substring</option>
 <option value="uppercase">Uppercase</option>
 <option value="lowercase">Lowercase</option>
+<option value="replace">Replace</option>
+<option value="trimstart">Trim Start</option>
+<option value="trimend">Trim End</option>
+<option value="at">At</option>
+<option value="slice">Slice</option>
+<option value="charcode">Char Code</option>
+<option value="padstart">Pad Start</option>
+<option value="padend">Pad End</option>
+
 </select>
 
-<br>
+</div>
 
-<button class="btn btn-primary" onclick="applyMethod()">Apply</button>
+<div id="extraFields"></div>
 
-<div class="alert alert-info mt-3" id="result"></div>
+<button type="button" class="btn btn-primary mt-3" onclick="applyMethod()">
+Apply Method
+</button>
+
+</form>
+
+<hr>
+
+<div id="result" class="alert alert-info d-none"></div>
 
 </div>
 </div>
 
 <script>
+
+function showExtraFields(){
+
+let method=document.getElementById("methodSelect").value
+let extra=document.getElementById("extraFields")
+
+extra.innerHTML=""
+
+if(method==="substring" || method==="slice"){
+
+extra.innerHTML=`
+
+<div class="mb-3">
+<label>Start Index</label>
+<input type="number" id="startIndex" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>End Index</label>
+<input type="number" id="endIndex" class="form-control">
+</div>
+
+`
+
+}
+
+else if(method==="replace"){
+
+extra.innerHTML=`
+
+<div class="mb-3">
+<label>Text to Replace</label>
+<input type="text" id="oldText" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>Replace With</label>
+<input type="text" id="newText" class="form-control">
+</div>
+
+`
+
+}
+
+else if(method==="at" || method==="charcode"){
+
+extra.innerHTML=`
+
+<div class="mb-3">
+<label>Index Number</label>
+<input type="number" id="indexNumber" class="form-control">
+</div>
+
+`
+
+}
+
+else if(method==="padstart" || method==="padend"){
+
+extra.innerHTML=`
+
+<div class="mb-3">
+<label>Total Length</label>
+<input type="number" id="totalLength" class="form-control">
+</div>
+
+<div class="mb-3">
+<label>Padding Character</label>
+<input type="text" id="padChar" class="form-control">
+</div>
+
+`
+
+}
+
+}
+
 function applyMethod(){
 
 let str=document.getElementById("inputString").value
 let method=document.getElementById("methodSelect").value
+
 let output=""
 
 switch(method){
 
 case "length":
 output=str.length
+break
+
+case "substring":
+let s1=document.getElementById("startIndex").value
+let s2=document.getElementById("endIndex").value
+output=str.substring(s1,s2)
+break
+
+case "slice":
+let sl1=document.getElementById("startIndex").value
+let sl2=document.getElementById("endIndex").value
+output=str.slice(sl1,sl2)
 break
 
 case "uppercase":
@@ -55,22 +172,55 @@ case "lowercase":
 output=str.toLowerCase()
 break
 
-case "substring":
-output=str.substring(0,5)
-break
-
 case "replace":
-output=str.replace("a","@")
+let oldT=document.getElementById("oldText").value
+let newT=document.getElementById("newText").value
+output=str.replace(oldT,newT)
 break
 
-case "trim":
-output=str.trim()
+case "trimstart":
+output=str.trimStart()
 break
+
+case "trimend":
+output=str.trimEnd()
+break
+
+case "at":
+let index=document.getElementById("indexNumber").value
+output=str.at(index)
+break
+
+case "charcode":
+let codeIndex=document.getElementById("indexNumber").value
+output=str.charCodeAt(codeIndex)
+break
+
+case "padstart":
+let len1=document.getElementById("totalLength").value
+let char1=document.getElementById("padChar").value
+output=str.padStart(len1,char1)
+break
+
+case "padend":
+let len2=document.getElementById("totalLength").value
+let char2=document.getElementById("padChar").value
+output=str.padEnd(len2,char2)
+break
+
+default:
+output="Please select method"
 
 }
 
-document.getElementById("result").innerHTML="Result : "+output
+let resultDiv=document.getElementById("result")
+
+resultDiv.innerHTML="<b>Result:</b> "+output
+
+resultDiv.classList.remove("d-none")
+
 }
+
 </script>
 
 </body>
