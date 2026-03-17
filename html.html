@@ -41,14 +41,32 @@ let str=document.getElementById("inputString").value
 let method=document.getElementById("methodSelect").value
 let output=""
 
-if(method==="length"){
+switch(method){
+
+case "length":
 output=str.length
-}
-else if(method==="uppercase"){
+break
+
+case "uppercase":
 output=str.toUpperCase()
-}
-else if(method==="lowercase"){
+break
+
+case "lowercase":
 output=str.toLowerCase()
+break
+
+case "substring":
+output=str.substring(0,5)
+break
+
+case "replace":
+output=str.replace("a","@")
+break
+
+case "trim":
+output=str.trim()
+break
+
 }
 
 document.getElementById("result").innerHTML="Result : "+output
