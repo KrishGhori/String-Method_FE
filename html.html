@@ -113,6 +113,35 @@ function applyMethod(){
     let str = document.getElementById("inputString").value;
     let method = document.getElementById("methodSelect").value;
     let output = "";
+
+    switch(method){
+
+        case "length":
+            output = str.length;
+            break;
+
+        case "substring":
+            let s1 = document.getElementById("startIndex").value;
+            let s2 = document.getElementById("endIndex").value;
+            output = str.substring(s1, s2);
+            break;
+
+        case "slice":
+            let sl1 = document.getElementById("startIndex").value;
+            let sl2 = document.getElementById("endIndex").value;
+            output = str.slice(sl1, sl2);
+            break;
+
+        case "uppercase":
+            output = str.toUpperCase();
+            break;
+
+        
+
+        default:
+            output = "Please select method.";
+    }
+
 }
 
 </script>
