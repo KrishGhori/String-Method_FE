@@ -50,5 +50,73 @@
     </div>
 </div>
 
+
+<script>
+
+function showExtraFields() {
+
+    let method = document.getElementById("methodSelect").value;
+    let extra = document.getElementById("extraFields");
+    extra.innerHTML = "";
+
+    if(method === "substring" || method === "slice"){
+        extra.innerHTML = `
+            <div class="mb-3">
+                <label>Start Index:</label>
+                <input type="number" id="startIndex" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>End Index:</label>
+                <input type="number" id="endIndex" class="form-control">
+            </div>
+        `;
+    }
+
+    else if(method === "replace"){
+        extra.innerHTML = `
+            <div class="mb-3">
+                <label>Text to Replace:</label>
+                <input type="text" id="oldText" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Replace With:</label>
+                <input type="text" id="newText" class="form-control">
+            </div>
+        `;
+    }
+
+    else if(method === "at" || method === "charcode"){
+        extra.innerHTML = `
+            <div class="mb-3">
+                <label>Index Number:</label>
+                <input type="number" id="indexNumber" class="form-control">
+            </div>
+        `;
+    }
+
+    else if(method === "padstart" || method === "padend"){
+        extra.innerHTML = `
+            <div class="mb-3">
+                <label>Total Length:</label>
+                <input type="number" id="totalLength" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Padding Character:</label>
+                <input type="text" id="padChar" class="form-control">
+            </div>
+        `;
+    }
+}
+
+function applyMethod(){
+
+    let str = document.getElementById("inputString").value;
+    let method = document.getElementById("methodSelect").value;
+    let output = "";
+}
+
+</script>
+
+
 </body>
 </html>
