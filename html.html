@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>String Method Selector</title>
+<title>String Method Selector</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
 
-<h2>String Method Selector</h2>
+<body class="bg-light">
 
-<label>Enter String:</label>
-<input type="text" id="inputString">
+<div class="container mt-5">
+<div class="card p-4 shadow">
 
-<br><br>
+<h3 class="text-center">String Method Selector</h3>
 
-<label>Select Method:</label>
-<select id="methodSelect">
-    <option value="">--Select--</option>
-    <option value="length">Length</option>
-    <option value="uppercase">Uppercase</option>
-    <option value="lowercase">Lowercase</option>
+<label class="form-label">Enter String:</label>
+<input type="text" id="inputString" class="form-control">
+
+<br>
+
+<label class="form-label">Select Method:</label>
+<select id="methodSelect" class="form-select">
+<option value="">--Select--</option>
+<option value="length">Length</option>
+<option value="uppercase">Uppercase</option>
+<option value="lowercase">Lowercase</option>
 </select>
 
-<br><br>
+<br>
 
-<button onclick="applyMethod()">Apply Method</button>
+<button class="btn btn-primary" onclick="applyMethod()">Apply</button>
 
-<p id="result"></p>
+<div class="alert alert-info mt-3" id="result"></div>
+
+</div>
+</div>
 
 <script>
 function applyMethod(){
-    let str = document.getElementById("inputString").value;
-    let method = document.getElementById("methodSelect").value;
-    let output = "";
 
-    if(method === "length"){
-        output = str.length;
-    }
-    else if(method === "uppercase"){
-        output = str.toUpperCase();
-    }
-    else if(method === "lowercase"){
-        output = str.toLowerCase();
-    }
+let str=document.getElementById("inputString").value
+let method=document.getElementById("methodSelect").value
+let output=""
 
-    document.getElementById("result").innerHTML = output;
+if(method==="length"){
+output=str.length
+}
+else if(method==="uppercase"){
+output=str.toUpperCase()
+}
+else if(method==="lowercase"){
+output=str.toLowerCase()
+}
+
+document.getElementById("result").innerHTML="Result : "+output
 }
 </script>
 
