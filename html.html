@@ -180,6 +180,9 @@ function applyMethod(){
             output = "Please select method.";
     }
 
+    let resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "<b>Result:</b> " + output;
+    resultDiv.classList.remove("d-none");
 }
 
 </script>
