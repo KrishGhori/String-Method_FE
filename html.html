@@ -136,7 +136,45 @@ function applyMethod(){
             output = str.toUpperCase();
             break;
 
-        
+        case "lowercase":
+            output = str.toLowerCase();
+            break;
+
+        case "replace":
+            let oldT = document.getElementById("oldText").value;
+            let newT = document.getElementById("newText").value;
+            output = str.replace(oldT, newT);
+            break;
+
+        case "trimstart":
+            output = str.trimStart();
+            break;
+
+        case "trimend":
+            output = str.trimEnd();
+            break;
+
+        case "at":
+            let index = document.getElementById("indexNumber").value;
+            output = str.at(index);
+            break;
+
+        case "charcode":
+            let codeIndex = document.getElementById("indexNumber").value;
+            output = str.charCodeAt(codeIndex);
+            break;
+
+        case "padstart":
+            let len1 = document.getElementById("totalLength").value;
+            let char1 = document.getElementById("padChar").value;
+            output = str.padStart(len1, char1);
+            break;
+
+        case "padend":
+            let len2 = document.getElementById("totalLength").value;
+            let char2 = document.getElementById("padChar").value;
+            output = str.padEnd(len2, char2);
+            break;
 
         default:
             output = "Please select method.";
