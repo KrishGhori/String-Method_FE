@@ -33,6 +33,8 @@
 
 <button class="btn btn-primary mt-3" onclick="applyMethod()">Apply</button>
 
+<button class="btn btn-success mt-2" onclick="copyResult()">Copy Result</button>
+
 <div id="result" class="alert alert-info mt-3"></div>
 
 </div>
@@ -76,6 +78,16 @@ output=str.split("").reverse().join("")
 }
 
 document.getElementById("result").innerHTML=output
+
+}
+
+function copyResult(){
+
+let text=document.getElementById("result").innerText
+
+navigator.clipboard.writeText(text)
+
+alert("Result copied!")
 
 }
 
