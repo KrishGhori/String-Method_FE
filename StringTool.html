@@ -18,7 +18,16 @@
 
 <input type="text" id="inputString" class="form-control" placeholder="Enter text">
 
-<button class="btn btn-primary mt-3" onclick="showText()">Show</button>
+<select id="methodSelect" class="form-select mt-3">
+
+<option value="">Select Method</option>
+<option value="length">Length</option>
+<option value="uppercase">Uppercase</option>
+<option value="lowercase">Lowercase</option>
+
+</select>
+
+<button class="btn btn-primary mt-3" onclick="applyMethod()">Apply</button>
 
 <div id="result" class="alert alert-info mt-3"></div>
 
@@ -28,11 +37,26 @@
 
 <script>
 
-function showText(){
+function applyMethod(){
 
 let str=document.getElementById("inputString").value
+let method=document.getElementById("methodSelect").value
 
-document.getElementById("result").innerHTML=str
+let output=""
+
+if(method==="length"){
+output=str.length
+}
+
+else if(method==="uppercase"){
+output=str.toUpperCase()
+}
+
+else if(method==="lowercase"){
+output=str.toLowerCase()
+}
+
+document.getElementById("result").innerHTML=output
 
 }
 
