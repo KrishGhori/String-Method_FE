@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>String Method Selector</title>
+
+<title>String Tool</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="bg-light">
 
-<h2>String Method Selector</h2>
+<div class="container mt-5">
 
-<label>Enter String</label>
-<input type="text" id="inputString">
+<div class="card shadow p-4">
 
-<button onclick="applyMethod()">Apply</button>
+<h3 class="text-center">String Tool</h3>
 
-<p id="result"></p>
+<input type="text" id="inputString" class="form-control" placeholder="Enter text">
+
+<button class="btn btn-primary mt-3" onclick="showText()">Show</button>
+
+<div id="result" class="alert alert-info mt-3"></div>
+
+</div>
+
+</div>
 
 <script>
 
-function applyMethod(){
+function showText(){
+
 let str=document.getElementById("inputString").value
+
 document.getElementById("result").innerHTML=str
+
 }
 
 </script>
