@@ -24,6 +24,7 @@
 <option value="length">Length</option>
 <option value="uppercase">Uppercase</option>
 <option value="lowercase">Lowercase</option>
+<option value="reverse">Reverse</option>
 
 </select>
 
@@ -54,6 +55,10 @@ output=str.toUpperCase()
 
 else if(method==="lowercase"){
 output=str.toLowerCase()
+}
+
+else if(method==="reverse"){
+output=str.split("").reverse().join("")
 }
 
 document.getElementById("result").innerHTML=output
