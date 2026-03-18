@@ -8,13 +8,15 @@
 
 </head>
 
-<body class="bg-light">
+<body class="bg-light" id="pageBody">
 
 <div class="container mt-5">
 
 <div class="card shadow p-4">
 
 <h3 class="text-center">String Tool</h3>
+
+<button class="btn btn-dark mb-3" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
 <input type="text" id="inputString" class="form-control" placeholder="Enter text">
 
@@ -88,6 +90,15 @@ let text=document.getElementById("result").innerText
 navigator.clipboard.writeText(text)
 
 alert("Result copied!")
+
+}
+
+function toggleDarkMode(){
+
+let body=document.getElementById("pageBody")
+
+body.classList.toggle("bg-dark")
+body.classList.toggle("text-white")
 
 }
 
