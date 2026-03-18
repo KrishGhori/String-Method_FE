@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>String Method Selector</title>
 </head>
+
 <body>
-    
+
+<h2>String Method Selector</h2>
+
+<label>Enter String</label>
+<input type="text" id="inputString">
+
+<button onclick="applyMethod()">Apply</button>
+
+<p id="result"></p>
+
+<script>
+
+function applyMethod(){
+let str=document.getElementById("inputString").value
+document.getElementById("result").innerHTML=str
+}
+
+</script>
+
 </body>
 </html>
