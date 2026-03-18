@@ -19,6 +19,7 @@
 <input type="text" id="inputString" class="form-control" placeholder="Enter text">
 
 <p id="charCount">Characters: 0</p>
+<p id="wordCount">Words: 0</p>
 
 <select id="methodSelect" class="form-select mt-3">
 
@@ -41,7 +42,15 @@
 <script>
 
 document.getElementById("inputString").addEventListener("input",function(){
-document.getElementById("charCount").innerHTML="Characters: "+this.value.length
+
+let text=this.value
+
+document.getElementById("charCount").innerHTML="Characters: "+text.length
+
+let words=text.trim()===""?0:text.trim().split(/\s+/).length
+
+document.getElementById("wordCount").innerHTML="Words: "+words
+
 })
 
 function applyMethod(){
