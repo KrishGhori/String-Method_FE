@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>String Analyzer</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
-<body>
-    
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div class="card p-4 shadow">
+
+<h3 class="text-center">String Analyzer</h3>
+
+<input type="text" id="text" class="form-control" placeholder="Enter text">
+
+<button class="btn btn-primary mt-3" onclick="analyze()">Analyze</button>
+
+<div class="mt-3" id="result"></div>
+
+</div>
+</div>
+
+<script>
+
+function analyze(){
+
+let str=document.getElementById("text").value
+
+let vowels=(str.match(/[aeiou]/gi)||[]).length
+let consonants=(str.match(/[bcdfghjklmnpqrstvwxyz]/gi)||[]).length
+let digits=(str.match(/[0-9]/g)||[]).length
+let spaces=(str.match(/ /g)||[]).length
+
+document.getElementById("result").innerHTML=`
+Characters: ${str.length}<br>
+Vowels: ${vowels}<br>
+Consonants: ${consonants}<br>
+Digits: ${digits}<br>
+Spaces: ${spaces}
+`
+
+}
+
+</script>
+
 </body>
 </html>
