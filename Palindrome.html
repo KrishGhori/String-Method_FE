@@ -24,5 +24,23 @@
 </div>
 </div>
 
+<script>
+
+function check(){
+
+let str=document.getElementById("text").value
+let rev=str.split("").reverse().join("")
+
+if(str===rev){
+document.getElementById("result").innerHTML="Palindrome"
+}
+else{
+document.getElementById("result").innerHTML="Not Palindrome"
+}
+
+}
+
+</script>
+
 </body>
 </html>
